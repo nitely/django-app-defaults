@@ -5,7 +5,7 @@
 [![pypi](https://img.shields.io/pypi/v/django-app-defaults.svg?style=flat-square)](https://pypi.python.org/pypi/django-app-defaults)
 [![licence](https://img.shields.io/pypi/l/django-app-defaults.svg?style=flat-square)](https://raw.githubusercontent.com/nitely/django-app-defaults/master/LICENSE)
 
-A library for managing apps and projects default static settings.
+A library for managing default static settings for apps and projects.
 Define default settings for apps and override them in project settings when needed.
 
 ## Requirements
@@ -70,9 +70,9 @@ settings = Settings(modules=[defaults])
 
 It's an extremely simple library. It goes through all installed apps and
 looks for a `defaults.py` module at the root of the app. If a `DEFAULT_SETTINGS_MODULE`
-var is found, the module is loaded.
+var is found, then the module is loaded.
 
-It's similar to the following pattern, but generalized in a reusable lib:
+It's similar to the following pattern, but generalized into a reusable lib:
 
 ```python
 from my_app import defaults

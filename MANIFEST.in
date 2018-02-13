@@ -4,7 +4,7 @@ include README.md
 include HISTORY.md
 include requirements.txt
 
-graft djconfig
+graft app_defaults
 
 prune docs
 prune tests

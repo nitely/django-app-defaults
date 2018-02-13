@@ -72,3 +72,10 @@ class DefaultsTest(TestCase):
         Should get settings from project
         """
         self.assertEqual(settings.SETTING_BAR, 'bar')
+
+    def test_app_without_defaults(self):
+        """
+        Should ignore app without defaults
+        """
+        s = Settings(apps=["tests.apps.app_a", "tests.apps.app_e"])
+        self.assertEqual(s.APP_A_FOO, "foo")

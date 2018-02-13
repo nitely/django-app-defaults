@@ -8,6 +8,12 @@ Define default settings for apps and override them in project settings when need
 * Python 2.7, +3.4
 * Django 1.8, 1.11, +2.0
 
+## Install
+
+```
+pip install django-app-defaults
+```
+
 ## Usage
 
 ```python
@@ -35,7 +41,7 @@ print(settings.DEBUG)
 # True
 ```
 
-To load default setting for a single app instead of for all apps, just do:
+To load default setting for a single app instead of all of the apps, just do:
 
 ```python
 settings = Settings(apps=["my_app"])
@@ -45,6 +51,9 @@ settings = Settings(apps=["my_app"])
 from my_app import defaults
 settings = Settings(modules=[defaults])
 ```
+
+> Note: the `DEFAULT_SETTINGS_MODULE`` variable is not required
+> when explicitly passing the `apps` or `modules`
 
 ## How it works
 

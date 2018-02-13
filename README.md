@@ -1,5 +1,10 @@
 # django-app-defaults
 
+[![Build Status](https://img.shields.io/travis/nitely/django-app-defaults.svg?style=flat-square)](https://travis-ci.org/nitely/django-app-defaults)
+[![Coverage Status](https://img.shields.io/coveralls/nitely/django-app-defaults.svg?style=flat-square)](https://coveralls.io/r/nitely/django-app-defaults)
+[![pypi](https://img.shields.io/pypi/v/django-app-defaults.svg?style=flat-square)](https://pypi.python.org/pypi/django-app-defaults)
+[![licence](https://img.shields.io/pypi/l/django-app-defaults.svg?style=flat-square)](https://raw.githubusercontent.com/nitely/django-app-defaults/master/LICENSE)
+
 A library for managing apps and projects default static settings.
 Define default settings for apps and override them in project settings when needed.
 

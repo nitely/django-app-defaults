@@ -6,6 +6,14 @@ import os
 from setuptools import setup, find_packages
 
 
+def get_version(package):
+    """Get version without importing the lib"""
+    with io.open(os.path.join(BASE_DIR, package, '__init__.py'), encoding='utf-8') as fh:
+        return [
+            l.split('=', 1)[1].strip().strip("'").strip('"')
+            for l in fh.readlines()
+            if '__version__' in l][0]
+
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 URL = 'https://github.com/nitely/django-app-defaults'
 README = "For more info, go to: {}".format(URL)
@@ -15,7 +23,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-app-defaults',
-    version=__import__('app_defaults').__version__,
+    version=get_version('app_defaults'),
     description='A library for managing apps and projects default static settings.',
     author='Esteban Castro Borsani',
     author_email='ecastroborsani@gmail.com',

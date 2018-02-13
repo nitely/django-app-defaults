@@ -33,7 +33,7 @@ DEFAULT_SETTINGS_MODULE = True
 MY_DEFAULT_SETTING = "yey"
 ```
 
-Then anywhere within your project:
+Then anywhere within your project or app:
 
 ```python
 from app_defaults import settings
@@ -46,7 +46,7 @@ print(settings.DEBUG)
 # True
 ```
 
-To load default setting for a single app instead of all of the apps, just do:
+To load default settings for a single app instead of all of the apps, just do:
 
 ```python
 settings = Settings(apps=["my_app"])
@@ -57,22 +57,22 @@ from my_app import defaults
 settings = Settings(modules=[defaults])
 ```
 
-> Note: the `DEFAULT_SETTINGS_MODULE`` variable is not required
-> when explicitly passing the `apps` or `modules`
+> Note: the `DEFAULT_SETTINGS_MODULE` variable is not required
+> when explicitly passing `apps` or `modules`
 
 ## How it works
 
 It's an extremely simple library. It goes through all installed apps and
 looks for a `defaults.py` module at the root of the app. If a `DEFAULT_SETTINGS_MODULE`
-is found, the module is loaded.
+var is found, the module is loaded.
 
-It's similar to the following pattern but generalized in a reusable lib:
+It's similar to the following pattern, but generalized in a reusable lib:
 
 ```python
 from my_app import defaults
 from django.conf import settings
 
-class Settings(object):
+class Settings:
     def __getattr__(self, attr):
         try:
             return getattr(settings, attr)
@@ -82,7 +82,7 @@ class Settings(object):
 
 ## Documentation
 
-N/A
+[django-app-defaults.readthedocs.io](http://django-app-defaults.readthedocs.io)
 
 ## License
 

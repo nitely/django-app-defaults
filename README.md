@@ -24,7 +24,8 @@ pip install django-app-defaults
 ```python
 # my_app/defaults.py
 
-# `django.conf.settings` or any other module can be imported if needed
+# `django.conf.settings` or any other
+# module can be imported and used
 
 # required
 DEFAULT_SETTINGS_MODULE = True
@@ -32,6 +33,9 @@ DEFAULT_SETTINGS_MODULE = True
 # define default settings below
 MY_DEFAULT_SETTING = "yey"
 ```
+
+> Note: all `defaults`'s settings can be
+> overridden in `my_project.settings.py`
 
 Then anywhere within your project or app:
 
@@ -83,6 +87,12 @@ class Settings:
 ## Documentation
 
 [django-app-defaults.readthedocs.io](http://django-app-defaults.readthedocs.io)
+
+## Tests
+
+```
+make test
+```
 
 ## License
 

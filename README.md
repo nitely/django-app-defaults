@@ -30,7 +30,7 @@ MY_DEFAULT_SETTING = "yey"
 
 Then anywhere within your project:
 
-```
+```python
 from app_defaults import settings
 
 print(settings.MY_DEFAULT_SETTING)

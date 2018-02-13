@@ -35,7 +35,7 @@ MY_DEFAULT_SETTING = "yey"
 ```
 
 > Note: all `defaults`'s settings can be
-> overridden in `my_project.settings.py`
+> overridden in `my_project/settings.py`
 
 Then anywhere within your project or app:
 
@@ -53,6 +53,8 @@ print(settings.DEBUG)
 To load default settings for a single app instead of all of the apps, just do:
 
 ```python
+from app_defaults import Settings
+
 settings = Settings(apps=["my_app"])
 
 # or

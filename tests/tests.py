@@ -23,7 +23,7 @@ class DefaultsTest(TestCase):
         """
         Should load from modules param
         """
-        from tests.apps.app_a import defaults
+        from .apps.app_a import defaults
         s = Settings(modules=[defaults])
         self.assertEqual(s.APP_A_FOO, "foo")
 

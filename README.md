@@ -8,6 +8,15 @@
 A library for managing default static settings for apps and projects.
 Define default settings for apps and override them in project settings when needed.
 
+## Why?
+
+This library encourages loose coupling between apps by defining
+the settings of each app locally. For authors of reusable apps,
+it allows to avoid the `getattr` pattern, and the definition of
+default values scattered everywhere. Unlike other alternatives,
+it avoids being too magical, and sticks to the Django conventions.
+Defining settings should be simple, as they are just settings after all.
+
 ## Requirements
 
 * Python 2.7, +3.4
@@ -27,11 +36,12 @@ pip install django-app-defaults
 # `django.conf.settings` or any other
 # module can be imported and used
 
-# required
+# required for auto discoverability
 DEFAULT_SETTINGS_MODULE = True
 
-# define default settings below
-MY_DEFAULT_SETTING = "yey"
+#: This is a doc comment for
+#: my setting I just created
+MY_DEFAULT_SETTING = "yay"
 ```
 
 > Note: all `defaults`'s settings can be
@@ -43,7 +53,7 @@ Then anywhere within your project or app:
 from app_defaults import settings
 
 print(settings.MY_DEFAULT_SETTING)
-# yey
+# yay
 
 # All `django.conf.settings` are also available
 print(settings.DEBUG)

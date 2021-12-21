@@ -79,3 +79,7 @@ class DefaultsTest(TestCase):
         """
         s = Settings(apps=["tests.apps.app_a", "tests.apps.app_e"])
         self.assertEqual(s.APP_A_FOO, "foo")
+
+    def test_custom_admin(self):
+        s = Settings(apps=["tests.apps.app_f.apps.MyAdminConfig"])
+        self.assertEqual(s.APP_F_FOO, "foo")

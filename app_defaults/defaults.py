@@ -5,7 +5,9 @@ import importlib
 import pkgutil
 import collections
 import os
+import inspect
 
+from django.utils.module_loading import import_string
 from django.conf import settings as django_settings
 
 __all__ = ['settings', 'Settings']
@@ -47,6 +49,11 @@ class Settings:
         if locals_only:
             apps = _from_locals(apps)
         for app in apps:
+            try:  # handle AppConfig
+                if inspect.isclass(import_string(app)):
+                    app = app.rsplit('.', 2)[0]
+            except ImportError:
+                pass
             module = '.'.join((app, 'defaults'))
             if pkgutil.find_loader(module) is None:
                 continue
